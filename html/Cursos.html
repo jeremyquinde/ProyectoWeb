@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos</title>
+    <meta name="author" content="Pedro Andres Aviles Baque">
+    <link rel="stylesheet" href="../style.css">
+   
+    <style>
+        /* Estilo para la sección del main */
+        .titulo {
+            text-align: left;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--color-principal);
+            margin-bottom: 20px;
+        }
+        
+        .consulta {
+            margin-bottom: 20px;
+        }
+        
+        .consulta label {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+        
+        .consulta input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            width: 300px;
+        }
+        
+        .consulta button {
+            padding: 7px 15px;
+            font-size: 16px;
+            background-color: var(--color-principal);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .materias {
+            margin-top: 40px;
+        }
+        
+        .materias .subtitulo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--color-principal);
+            margin-bottom: 20px;
+        }
+        
+        .bloques {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .bloque {
+            background-color: rgb(208, 193, 223);
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 10px;
+            box-shadow: rgba(124, 13, 228, 0.1) 0 5px 5px;
+        }
+        
+        .bloque img {
+            width: 100%;
+            height: 180px;
+            background-color: #ddd;
+            margin-bottom: 10px;
+        }
+        
+        .bloque .nombre-materia {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--color-fuente-principal);
+        }
+        
+        .bloque button {
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: var(--color-secundario);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .bloque button:hover {
+    background-color: var(--color-secundario-hover);
+    box-shadow: rgba(124, 13, 228, 0.5) 0 5px 10px;
+    color: #ffffff; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; 
+    }
+
+
+
+
+        /* Estilos para el formulario */
+        .formularioMateria {
+            display: none;
+            flex-direction: column;
+            width: 300px;
+            margin: 20px auto;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        .formularioMateria input[type="number"],
+        .formularioMateria textarea,
+        .formularioMateria select {
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+            width: calc(100% - 22px);
+            border-radius: 5px;
+        }
+
+        .formularioMateria input[type="radio"],
+        .formularioMateria input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .formularioMateria button {
+            padding: 10px;
+            background-color: var(--color-principal);
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .formularioMateria button:hover {
+            background-color: var(--color-principal-hover);
+        }
+
+        /* Estilo para la ventana modal de retroalimentación */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+        }
+
+        .modal-header, .modal-footer {
+            padding: 10px;
+            background-color: var(--color-principal);
+            color: white;
+            border-radius: 10px;
+        }
+
+        .modal-body {
+            padding: 20px;
+            background-color: white;
+        }
+
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>    <!-- Estrategia de maquetacion: GRID LAYOUT -->
+        <div class="contenedor-menu">
+
+                <nav class="menu">
+                    <div class="logo" >
+                        <img src="../img/logo.png" alt="">
+                        <label>LOGO</label>
+                    </div>
+
+                    <ul>
+                        <li >
+                            <a href="../index.html">INICIO</a>
+                        </li>
+                        <li class="link-activo" >
+                            <a href="Cursos.html">CURSOS</a>
+                        </li>
+                        <li>
+                            <a href="Profesores.html">PROFESORES</a>
+                        </li>
+                        <li >
+                            <a href="Actividades.html">ACTIVIDADES EXTRACURRICULARES</a>
+                        </li> 
+                        <li>
+                            <a href="Informes.html">INFORMES</a>
+                        </li>
+                    </ul>
+                    <div class="usuario">
+                        <label >USUARIO</label> 
+                        <img src="../img/usuario.jpg" alt="">
+                    </div>
+                </nav>
+            
+            </div>
+    </header>
+    <main class="contenido">
+        <section>
+            <div class="titulo">Histórico por Cursos</div>
+            <div class="consulta">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre">
+                <button type="button" id="btnBuscar">Buscar</button>
+                <button type="button" id="btnVerRetro">Ver Retroalimentación</button>
+            </div>
+        </section>
+        <section class="materias">
+            <div class="subtitulo">Materias</div>
+            <div class="bloques" id="materiasContainer">
+                <!-- Bloques de materias se generan aquí dinámicamente -->
+            </div>
+        </section>
+        <form id="formularioMateria" class="formularioMateria">
+            <h2>Retroalimentación</h2>
+            <div>
+                <label for="calificacion">Calificación del Curso:</label>
+                <input type="number" id="calificacion" name="calificacion" min="1" max="5" step="1" required>
+                <span id="error-calificacion" class="error"></span>
+            </div>
+            <div>
+                <label for="opinion">Opinión del Curso:</label>
+                <textarea id="opinion" name="opinion" required></textarea>
+                <span id="error-opinion" class="error"></span>
+            </div>
+            <div>
+                <label>Satisfacción con el Profesor:</label><br>
+                <input type="radio" id="excelente" name="satisfaccion" value="excelente" required>
+                <label for="excelente">Excelente</label><br>
+                <input type="radio" id="bueno" name="satisfaccion" value="bueno">
+                <label for="bueno">Bueno</label><br>
+                <input type="radio" id="regular" name="satisfaccion" value="regular">
+                <label for="regular">Regular</label><br>
+                <input type="radio" id="malo" name="satisfaccion" value="malo">
+                <label for="malo">Malo</label><br>
+                <span id="error-satisfaccion" class="error"></span>
+            </div>
+            <div>
+                <label>Recomendación del Curso:</label><br>
+                <input type="checkbox" id="recomendado" name="recomendado" value="recomendado">
+                <label for="recomendado">Recomendaría este curso a otros estudiantes</label><br>
+                <span id="error-recomendado" class="error"></span>
+            </div>
+            <div>
+                <label>Experiencia del Usuario:</label><br>
+                <input type="checkbox" id="practica" name="experiencia" value="practica">
+                <label for="practica">Ofreció oportunidades de práctica</label><br>
+                <input type="checkbox" id="organizado" name="experiencia" value="organizado">
+                <label for="organizado">El material fue bien organizado</label><br>
+                <input type="checkbox" id="relevante" name="experiencia" value="relevante">
+                <label for="relevante">El contenido fue relevante para mis necesidades</label><br>
+                <span id="error-experiencia" class="error"></span>
+            </div>
+            <div>
+                <label for="dificultad">Nivel de Dificultad Percibido:</label>
+                <select id="dificultad" name="dificultad" required>
+                    <option value="">Selecciona</option>
+                    <option value="facil">Fácil</option>
+                    <option value="intermedio">Intermedio</option>
+                    <option value="avanzado">Avanzado</option>
+                </select>
+                <span id="error-dificultad" class="error"></span>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+
+        <!-- Ventana modal para mostrar la retroalimentación -->
+        <div id="modalRetro" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2 id="materiaTitulo">Retroalimentación Recibida</h2>
+                </div>
+                <div class="modal-body" id="feedbackContainer">
+                    <!-- Contenido de la retroalimentación se generará aquí dinámicamente -->
+                </div>
+                <div class="modal-footer">
+                    <h3>Gracias por tu participación</h3>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    <footer> <!-- Estrategia de maquetacion: INLINE BLOCK LAYOUT -->
+        <div class="contenedor-footer">
+            <div class="footer-info">
+                <ul>
+                    <li>
+                        <a href="Conocenos.html">Conocenos</a>
+                    </li>
+                    <li>
+                        <a href="Servicios.html">Servicios</a>
+                    </li>
+                    <li>
+                        <a href="Contactanos.html">Contactanos</a>
+                    </li>
+                    <li>
+                        <a href="Novedades.html">Novedades</a>
+                    </li>
+                    <li>
+                        <a href="Redes.html">Redes</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-copyright">
+                <div></div>
+                <span> © 2024 Copyright, Grupo 4</span>
+                <div></div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const listaMaterias = [
+            { foto: '../img/POO.png', NombreMateria: 'Programación Orientada a Objetos', materia: 'POO', descripMateria: 'Descripción de Programación Orientada a Objetos' },
+            { foto: '../img/BD.png', NombreMateria: 'Base de Datos', materia: 'BD', descripMateria: 'Descripción de Base de Datos' },
+            { foto: '../img/IR.png', NombreMateria: 'Ingeniería de Requisitos', materia: 'IR', descripMateria: 'Descripción de Ingeniería de Requisitos' },
+            { foto: '../img/AS.png', NombreMateria: 'Arquitectura de Software', materia: 'AS', descripMateria: 'Descripción de Arquitectura de Software' },
+            { foto: '../img/DSA.jpeg', NombreMateria: 'Desarrollo de Software Ágil', materia: 'DSA', descripMateria: 'Descripción de Desarrollo de Software Ágil' },
+            { foto: '../img/SDS.png', NombreMateria: 'Seguridad en el Desarrollo de Software', materia: 'SDS', descripMateria: 'Descripción de Seguridad en el Desarrollo de Software' },
+            { foto: '../img/PS.jpg', NombreMateria: 'Pruebas de Software', materia: 'PS', descripMateria: 'Descripción de Pruebas de Software' },
+            { foto: '../img/SD.png', NombreMateria: 'Sistemas Distribuidos', materia: 'SD', descripMateria: 'Descripción de Sistemas Distribuidos' },
+            { foto: '../img/DAM.jpg', NombreMateria: 'Desarrollo de Aplicaciones Móviles', materia: 'DAM', descripMateria: 'Descripción de Desarrollo de Aplicaciones Móviles' },
+            { foto: '../img/IAAA.jpeg', NombreMateria: 'Inteligencia Artificial y Aprendizaje Automático', materia: 'IAAA', descripMateria: 'Descripción de Inteligencia Artificial y Aprendizaje Automático' },
+            { foto: '../img/GPS.jpg', NombreMateria: 'Gestión de Proyectos de Software', materia: 'GPS', descripMateria: 'Descripción de Gestión de Proyectos de Software' },
+            { foto: '../img/IUUX.png', NombreMateria: 'Interfaces de Usuario (UX/UI)', materia: 'IUUX', descripMateria: 'Descripción de Interfaces de Usuario (UX/UI)' },
+        ];
+        const feedbackList = [];
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnBuscar = document.getElementById('btnBuscar');
+            const btnVerRetro = document.getElementById('btnVerRetro');
+            const inputNombre = document.getElementById('nombre');
+            const formularioMateria = document.getElementById('formularioMateria');
+            const materiasContainer = document.getElementById('materiasContainer');
+            const modalRetro = document.getElementById('modalRetro');
+            const closeModal = document.getElementsByClassName('close')[0];
+            const feedbackContainer = document.getElementById('feedbackContainer');
+    
+            function renderizarMaterias(lista) {
+                materiasContainer.innerHTML = '';
+                lista.forEach(materia => {
+                    const divBloque = document.createElement('div');
+                    divBloque.classList.add('bloque');
+    
+                    const img = document.createElement('img');
+                    img.src = materia.foto;
+                    img.alt = materia.NombreMateria;
+    
+                    const nombreMateria = document.createElement('div');
+                    nombreMateria.classList.add('nombre-materia');
+                    nombreMateria.textContent = materia.NombreMateria;
+    
+                    const btnDetalle = document.createElement('button');
+                    btnDetalle.textContent = 'Detalle';
+                    btnDetalle.addEventListener('click', () => {
+                        formularioMateria.style.display = 'block';
+                    });
+    
+                    divBloque.appendChild(img);
+                    divBloque.appendChild(nombreMateria);
+                    divBloque.appendChild(btnDetalle);
+    
+                    materiasContainer.appendChild(divBloque);
+                });
+            }
+    
+            btnBuscar.addEventListener('click', function() {
+                const valor = inputNombre.value.toLowerCase();
+                const resultados = listaMaterias.filter(materia =>
+                    materia.NombreMateria.toLowerCase().includes(valor)
+                );
+                renderizarMaterias(resultados);
+            });
+    
+            btnVerRetro.addEventListener('click', function() {
+                feedbackContainer.innerHTML = '';
+                if (feedbackList.length === 0) {
+                    feedbackContainer.innerHTML = '<p>No hay retroalimentación disponible.</p>';
+                } else {
+                    feedbackList.forEach(feedback => {
+                        const divFeedback = document.createElement('div');
+                        divFeedback.classList.add('feedback-item');
+                        divFeedback.innerHTML = `
+                            <h3>${feedback.materia}</h3>
+                            <p><strong>Calificación:</strong> ${feedback.calificacion}</p>
+                            <p><strong>Opinión:</strong> ${feedback.opinion}</p>
+                            <p><strong>Satisfacción:</strong> ${feedback.satisfaccion}</p>
+                            <p><strong>Recomendado:</strong> ${feedback.recomendado}</p>
+                            <p><strong>Experiencias:</strong> ${feedback.experiencias.join(', ')}</p>
+                            <p><strong>Dificultad:</strong> ${feedback.dificultad}</p>
+                            <hr>
+                        `;
+                        feedbackContainer.appendChild(divFeedback);
+                    });
+                }
+                modalRetro.style.display = 'block';
+            });
+    
+            formularioMateria.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const calificacion = document.getElementById('calificacion').value;
+                const opinion = document.getElementById('opinion').value;
+                const satisfaccion = document.querySelector('input[name="satisfaccion"]:checked').value;
+                const recomendado = document.getElementById('recomendado').checked ? "Sí" : "No";
+                const experiencias = Array.from(document.querySelectorAll('input[name="experiencia"]:checked')).map(el => el.value);
+                const dificultad = document.getElementById('dificultad').value;
+                const nombreMateria = document.querySelector('.nombre-materia').textContent;
+    
+                if (calificacion && opinion && satisfaccion && dificultad) {
+                    const nuevoFeedback = {
+                        materia: nombreMateria,
+                        calificacion: calificacion,
+                        opinion: opinion,
+                        satisfaccion: satisfaccion,
+                        recomendado: recomendado,
+                        experiencias: experiencias,
+                        dificultad: dificultad
+                    };
+                    feedbackList.push(nuevoFeedback);
+                    formularioMateria.reset();
+                    formularioMateria.style.display = 'none';
+                    alert('¡Gracias por tu retroalimentación!');
+                } else {
+                    alert('Por favor, completa todos los campos obligatorios.');
+                }
+            });
+    
+            renderizarMaterias(listaMaterias);
+    
+            const arrayElementosLi = document.querySelectorAll("li");
+            arrayElementosLi.forEach(function(li) {
+                li.addEventListener("click", function() {
+                    arrayElementosLi.forEach(function(li) {
+                        li.classList.remove("link-activo");
+                    });
+                    this.classList.add("link-activo");
+                });
+            });
+
+closeModal.addEventListener('click', function() {
+    modalRetro.style.display = 'none';
+});
+
+window.addEventListener('click', function(event) {
+    if (event.target === modalRetro) {
+        modalRetro.style.display = 'none';
+    }
+});
+});
+</script>
+</body></html>

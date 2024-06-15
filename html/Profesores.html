@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Proyecto</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            padding: 0 50px 0 50px;
+            justify-content: center;
+            align-items: center;
+        }
+        .HeaderProfesor {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .BarraSuperior {
+            display: flex;
+            justify-content: space-between; 
+            margin: 40px 0 20px 0;
+            width: 400px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            padding: 5px 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .BarraSuperior input[type="text"] {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 25px;
+        }
+
+        .BarraSuperior button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .BarraSuperior button:hover {
+            background-color: #45a049;
+        }
+
+        #btnAgregar {
+            align-items: center;
+            align-self: flex-end; /* Alinea el botón a la derecha */
+            margin: 60px 30px 35px 30px;
+        }
+
+        #btnAgregar {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #btnAgregar:hover {
+            background-color: #45a049;
+        }
+
+        
+        .container .profesores{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 0;
+            
+        }
+        .container .profesores .profesor{
+            display: flex;
+            flex-direction: column;
+            background-color: gainsboro;
+            border-radius: 30px;
+            width: 350px;
+            height: 540px;
+            margin: 20px;
+        }
+        .container .profesores .profesor img{
+            margin: 30px 50px 0px 25px;
+            height: 200px;
+        }
+        .imagen-profesor img{
+            width: 150px; /* Ajusta el tamaño según sea necesario */
+            height: 200px; /* Ajusta el tamaño según sea necesario */
+            overflow: hidden;
+            border-radius: 30px; /* Hace que el contenedor del div sea redondo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .imagen-profesor img {
+            width: 85%;
+            height: 100%;
+            object-fit: cover; /* Asegura que la imagen se recorte para llenar el contenedor */
+        }
+        
+        
+        .container .profesores .profesor {
+            background: linear-gradient(270deg, #cba1d7, #9464cc, #d98afd, #aa81bd);
+            background-size: 800% 800%;
+            transition: transform 0.3s; /* Transición suave al agrandar */
+            
+            -webkit-animation: AnimationName 30s ease infinite;
+            -moz-animation: AnimationName 30s ease infinite;
+            animation: AnimationName 30s ease infinite;
+        }
+        
+        .container .profesores .profesor:hover {
+            transform: scale(1.05); /* Aumenta el tamaño al 110% */
+        }
+
+        @-webkit-keyframes AnimationName {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        @-moz-keyframes AnimationName {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        @keyframes AnimationName {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        .container .profesores .profesor .descripcion{
+            padding: 20px;
+        }
+        .container .profesores .profesor .descripcion p{
+            text-align: center;
+        }
+
+        .formularioProfe {
+            display: flex;
+            justify-content: space-between; 
+            margin: 0px 0 20px 0;
+            width: 800px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .formularioProfe input[type="text"] {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 25px;
+        }
+
+        .formularioProfe textarea {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 25px;
+        }
+
+        .formularioProfe button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .formularioProfe button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+    <header>    <!-- Estrategia de maquetacion: GRID LAYOUT -->
+        <div class="contenedor-menu">
+
+                <nav class="menu">
+                    <div class="logo" >
+                        <img src="../img/logo.png" alt="">
+                        <label>LOGO</label>
+                    </div>
+
+                    <ul>
+                        <li >
+                            <a href="../index.html">INICIO</a>
+                        </li>
+                        <li >
+                            <a href="Cursos.html">CURSOS</a>
+                        </li>
+                        <li class="link-activo">
+                            <a href="Profesores.html">PROFESORES</a>
+                        </li>
+                        <li >
+                            <a href="Actividades.html">ACTIVIDADES EXTRACURRICULARES</a>
+                        </li> 
+                        <li>
+                            <a href="Informes.html">INFORMES</a>
+                        </li>
+                    </ul>
+                    <div class="usuario">
+                        <label >USUARIO</label> 
+                        <img src="../img/usuario.jpg" alt="">
+                    </div>
+                </nav>
+            
+            </div>
+    </header>
+<main class="contenido">
+    <div class="container">
+        <div class="HeaderProfesor">
+            <div class="BarraSuperior">
+                <input type="text" placeholder="Buscar Profesor" id="profe">
+                <button type="submit" id="btnBus">Buscar</button>
+            </div>
+            <button id="btnAgregar">Agregar Profesor</button> <!-- Nuevo botón para mostrar el formulario -->
+        </div>
+
+        <form id="formularioProfesor" class="formularioProfe" style="display: none;"> <!-- Formulario oculto -->
+            <input type="text" id="nombre" placeholder="Nombre y Apellido" required>
+            <input type="text" id="foto" placeholder="URL de la Foto" required>
+            <input type="text" id="materia" placeholder="Materia" required>
+            <textarea id="descripcion" placeholder="Descripción de la Materia" required></textarea>
+            <button type="submit">Agregar Profesor</button>
+        </form>
+        <div class="profesores">
+    
+        </div>
+    </div>
+</main>
+<footer> <!-- Estrategia de maquetacion: INLINE BLOCK LAYOUT -->
+    <div class="contenedor-footer">
+        <div class="footer-info">
+            <ul>
+                <li>
+                    <a href="Conocenos.html">Conocenos</a>
+                </li>
+                <li>
+                    <a href="Servicios.html">Servicios</a>
+                </li>
+                <li>
+                    <a href="Contactanos.html">Contactanos</a>
+                </li>
+                <li>
+                    <a href="Novedades.html">Novedades</a>
+                </li>
+                <li>
+                    <a href="Redes.html">Redes</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            <div></div>
+            <span> © 2024 Copyright, Grupo 4</span>
+            <div></div>
+        </div>
+    </div>
+</footer>
+    <script>
+
+        let listaBusqueda;
+        let listaProfesores;
+        let formu = true;
+        const inputBusqueda = document.getElementById('profe');
+        const btnBusque = document.getElementById('btnBus');
+
+        // Agrega un evento de clic al botón
+        btnBusque.addEventListener('click', () => {
+
+            const valor = inputBusqueda.value;
+            BtnBuscar(valor);
+        });
+
+        function BtnBuscar(busqueda){
+            if(busqueda === ""){
+                listaBusqueda = listaProfesores;
+                agregarProfesores(listaBusqueda);
+            }
+            else{
+                listaBusqueda = listaProfesores.filter(x => x.nombreYApellido.toLowerCase().includes(busqueda.toLowerCase()));
+                agregarProfesores(listaBusqueda);
+            }
+        }
+
+        function Profesor(urlFoto, nombreYApellido, materia, descripMateria) {
+            this.urlFoto = urlFoto;
+            this.nombreYApellido = nombreYApellido;
+            this.materia = materia;
+            this.descripMateria = descripMateria;
+            }
+    
+        function agregarProfesores(listaProfesores) {
+            const miDiv = document.querySelector('.profesores');
+            while (miDiv.firstChild) {
+                miDiv.removeChild(miDiv.firstChild);
+            }
+
+            listaProfesores.forEach(profesor => {
+                const contenedorProfesores = document.querySelector('.profesores');
+
+                const divProfesor = document.createElement('div');
+                divProfesor.className = 'profesor';
+
+                const divImagenPro = document.createElement('div');
+                divImagenPro.className='imagen-profesor';
+                divProfesor.appendChild(divImagenPro);
+
+                const img = document.createElement('img');
+                img.src = profesor.urlFoto;
+                divImagenPro.appendChild(img);
+
+                const divDescripcion = document.createElement('div');
+                divDescripcion.className='descripcion';
+
+                const nombre = document.createElement('h3');
+                nombre.textContent = profesor.nombreYApellido;
+                divDescripcion.appendChild(nombre);
+                
+
+                const materia = document.createElement('p');
+                // materia.textContent = profesor.materia;
+                divDescripcion.appendChild(materia);
+
+                const materiaStrong = document.createElement('strong');
+                materiaStrong.textContent = profesor.materia;
+                materia.appendChild(materiaStrong);
+
+                const descripcion = document.createElement('p');
+                descripcion.textContent = profesor.descripMateria;
+                divDescripcion.appendChild(descripcion);
+
+                divProfesor.appendChild(divDescripcion);
+                contenedorProfesores.appendChild(divProfesor);
+            });
+            }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            listaProfesores = [
+                new Profesor('../img/poo.jpg', 'Dr. Ana Torres', 'Programación Orientada a Objetos', 'La Dra. Ana Torres es una experta en diseño y desarrollo de software con más de 15 años de experiencia en la industria y la academia. Es conocida por su enfoque práctico en la enseñanza y su capacidad para hacer que conceptos complejos sean fácilmente comprensibles para los estudiantes.'),
+                new Profesor('../img/bd.jpg', 'Ing. Carlos Mendoza', 'Bases de Datos', 'El Ingeniero Carlos Mendoza es un apasionado de la gestión y organización de datos. Con una sólida experiencia en empresas tecnológicas, su objetivo es que los estudiantes comprendan la importancia de las bases de datos y su aplicación en el desarrollo de software. Su estilo de enseñanza se basa en ejemplos del mundo real y proyectos prácticos.'),
+                new Profesor('../img/ingreq.jpg', 'M.Sc. Luisa Fernández', 'Ingeniería de Requisitos', 'La Maestra en Ciencias Luisa Fernández es una profesional dedicada a la identificación y análisis de requisitos para proyectos de software. Con una carrera enfocada en mejorar la comunicación entre clientes y desarrolladores, Luisa enseña a sus estudiantes cómo capturar y gestionar los requisitos de manera efectiva.'),
+                new Profesor('../img/arqsoft.jpg', 'Dr. Javier Ramírez', 'Arquitectura de Software', 'El Dr. Javier Ramírez es un reconocido investigador en el campo de la arquitectura de software. Ha publicado numerosos artículos y ha sido ponente en conferencias internacionales. Su curso se centra en enseñar a los estudiantes los principios y patrones de diseño que son fundamentales para construir sistemas robustos y escalables.'),
+                new Profesor('../img/dsa.jpg', 'Ing. Marta Gómez', 'Desarrollo de Software Ágil', 'La Ingeniera Marta Gómez es una experta en metodologías ágiles y tiene una vasta experiencia trabajando con equipos de desarrollo de software. Su enseñanza se caracteriza por fomentar la colaboración y la adaptación continua, preparando a los estudiantes para trabajar en entornos de desarrollo dinámicos.'),
+                new Profesor('../img/sdw.jpg', 'Dr. Ricardo Pérez', 'Seguridad en el Desarrollo de Software', 'El Dr. Ricardo Pérez se especializa en ciberseguridad y ha trabajado en diversas instituciones para mejorar la seguridad de sistemas informáticos. Su curso aborda las mejores prácticas para incorporar seguridad en cada fase del desarrollo de software, protegiendo así los productos desde su concepción hasta su implementación.'),
+                new Profesor('../img/psof.jpg', 'M.Sc. Paula Morales', 'Pruebas de Software', 'La Maestra en Ciencias Paula Morales tiene una sólida experiencia en control de calidad y pruebas de software. Su enfoque educativo se basa en enseñar técnicas avanzadas de testing y herramientas automatizadas, asegurando que los futuros ingenieros de software puedan entregar productos confiables y libres de errores.'),
+                new Profesor('../img/sd.jpg', 'Dr. Santiago Rodríguez', 'Sistemas Distribuidos', 'El Dr. Santiago Rodríguez es un experto en la arquitectura y diseño de sistemas distribuidos. Con una trayectoria en investigación y desarrollo de aplicaciones escalables, su objetivo es que los estudiantes comprendan cómo diseñar y gestionar sistemas que operan en múltiples ubicaciones geográficas.'),
+                new Profesor('../img/dam.jpg', 'Ing. Laura Villanueva', 'Desarrollo de Aplicaciones Móviles', 'La Ingeniera Laura Villanueva tiene una vasta experiencia en el desarrollo de aplicaciones móviles para diversas plataformas. Su curso se enfoca en enseñar a los estudiantes a crear aplicaciones intuitivas y eficientes, abarcando desde el diseño de la interfaz de usuario hasta la implementación del backend.'),
+                new Profesor('../img/ia.webp', 'Dr. Miguel Ángel Martínez', 'Inteligencia Artificial y Aprendizaje Automático', 'El Dr. Miguel Ángel Martínez es un destacado investigador en el campo de la inteligencia artificial y el aprendizaje automático. Su curso introduce a los estudiantes a técnicas y algoritmos avanzados, preparándolos para desarrollar soluciones innovadoras y automatizadas en el ámbito del software.'),
+                new Profesor('../img/gps.jpg', 'M.Sc. Elena Castro', 'Gestión de Proyectos de Software', 'La Maestra en Ciencias Elena Castro es una experta en la gestión de proyectos tecnológicos. Con años de experiencia en liderazgo de equipos de desarrollo, su curso se centra en metodologías de gestión de proyectos, herramientas de seguimiento y técnicas para garantizar la entrega exitosa de proyectos de software.'),
+                new Profesor('../img/iu.webp', 'Ing. Daniel Ortiz', 'Interfaces de Usuario y Experiencia de Usuario (UI/UX)', 'El Ingeniero Daniel Ortiz se especializa en el diseño y evaluación de interfaces de usuario y experiencia de usuario. Su enfoque es enseñar a los estudiantes cómo crear aplicaciones que no solo funcionen bien, sino que también sean fáciles y agradables de usar. Utiliza ejemplos prácticos y estudios de caso para ilustrar los principios de buen diseño.'), 
+            ];
+            agregarProfesores(listaProfesores);
+            });''
+
+            document.addEventListener('DOMContentLoaded', function() {
+            const formulario = document.getElementById('formularioProfesor');
+            const btnAgregar = document.getElementById('btnAgregar');
+
+            btnAgregar.addEventListener('click', function() {
+                if(formu){
+                    formulario.style.display = 'block'; // Mostrar el formulario al hacer clic en el botón
+                    formu = false;
+                }
+                else{
+                    formulario.style.display = 'none';
+                    formu = true;
+                }
+            });
+
+            formulario.addEventListener('submit', function(event) {
+                event.preventDefault(); // Evitar que se recargue la página al enviar el formulario
+
+                const nombre = document.getElementById('nombre').value;
+                const foto = document.getElementById('foto').value;
+                const materia = document.getElementById('materia').value;
+                const descripcion = document.getElementById('descripcion').value;
+
+                if (nombre.trim() !== '' && foto.trim() !== '' && materia.trim() !== '' && descripcion.trim() !== '') {
+                    const nuevoProfesor = new Profesor(foto, nombre, materia, descripcion);
+                    listaProfesores.push(nuevoProfesor);
+                    agregarProfesores(listaProfesores);
+                    formulario.reset(); // Limpiar el formulario después de agregar el profesor
+                    formulario.style.display = 'none'; // Ocultar el formulario después de agregar el profesor
+                } else {
+                    alert('Por favor, completa todos los campos del formulario.');
+                }
+            });
+        });
+
+
+    </script>
+
+    
+</body>
+</html>

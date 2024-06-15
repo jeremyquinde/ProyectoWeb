@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+
+  <title>Descripción de Servicios</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgb(235, 202, 241);
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .imagen {
+    display: block;
+    margin: 0 auto;
+    width: 700px; 
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    }
+    h1, h2 {
+      color: #333;
+    }
+    h2 {
+      margin-top: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    button {
+      background-color: #774990;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #6fa1d7;
+    }
+    .details {
+      display: none;
+      padding-top: 10px;
+      border-top: 1px solid #ddd;
+    }
+    .details p {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>    <!-- Estrategia de maquetacion: GRID LAYOUT -->
+    <div class="contenedor-menu">
+
+            <nav class="menu">
+                <div class="logo" >
+                    <img src="../img/logo.png" alt="">
+                    <label>LOGO</label>
+                </div>
+
+                <ul>
+                    <li class="link-activo" >
+                        <a href="../index.html">INICIO</a>
+                    </li>
+                    <li >
+                        <a href="Cursos.html">CURSOS</a>
+                    </li>
+                    <li>
+                        <a href="Profesores.html">PROFESORES</a>
+                    </li>
+                    <li >
+                        <a href="Actividades.html">ACTIVIDADES EXTRACURRICULARES</a>
+                    </li> 
+                    <li>
+                        <a href="Informes.html">INFORMES</a>
+                    </li>
+                </ul>
+                <div class="usuario">
+                    <label >USUARIO</label> 
+                    <img src="../img/usuario.jpg" alt="">
+                </div>
+            </nav>
+        
+        </div>
+</header>
+<div class="contenido">
+  <div class="container">
+    <img src="../img/campus.jpg" class="imagen" alt="campus">
+    <h1>Descripción del Servicio</h1>
+    <p>La plataforma de cursos ofrece una amplia variedad de cursos de alta calidad, diseñados para satisfacer las necesidades de aprendizaje de los estudiantes. Nuestros cursos están impartidos por profesores altamente experimentados y especializados en sus áreas.</p>
+    
+    <h2>Beneficios para los Usuarios</h2>
+    <ul>
+      <li>Acceso a contenido de calidad.</li>
+      <li>Flexibilidad horaria para estudiar a su propio ritmo.</li>
+      <li>Possibilidad de aprender desde cualquier lugar con conexión a Internet.</li>
+    </ul>
+    <button onclick="toggleDetails('beneficios')">Mostrar detalles</button>
+    <div id="beneficios-details" class="details">
+      <p>
+        Los usuarios de la plataforma tendrán acceso a una amplia variedad de cursos de alta calidad en diversas áreas temáticas. La flexibilidad horaria les permitirá estudiar a su propio ritmo, adaptando el aprendizaje a sus horarios y responsabilidades diarias. Además, la posibilidad de aprender desde cualquier lugar con conexión a Internet les brinda la libertad de estudiar desde la comodidad de su hogar o mientras viajan.
+      </p>
+    </div>
+    
+    <h2>Experiencia de los Profesores</h2>
+    <p>
+      Nuestros profesores cuentan con una amplia experiencia académica y profesional en sus áreas de especialización. Su formación académica y su trayectoria laboral garantizan la calidad de la enseñanza que ofrecen.
+    </p>
+    <button onclick="toggleDetails('experiencia')">Mostrar detalles</button>
+    <div id="experiencia-details" class="details">
+      <p>
+        Los profesores de nuestra plataforma tienen una larga trayectoria en la enseñanza y están altamente especializados en sus áreas de conocimiento. Su experiencia y dedicación aseguran que los estudiantes reciban una educación de calidad y relevante para sus necesidades.
+      </p>
+    </div>
+    
+    <h2>Metodología de Enseñanza</h2>
+    <p>
+      La metodología de enseñanza de nuestros cursos se caracteriza por ser altamente interactiva y personalizada. Los estudiantes pueden participar activamente en las clases y recibir feedback personalizado de los profesores.
+    </p>
+    <button onclick="toggleDetails('metodologia')">Mostrar detalles</button>
+    <div id="metodologia-details" class="details">
+      <p>
+        Nuestra metodología de enseñanza se centra en el aprendizaje práctico y participativo. Los estudiantes no solo adquieren conocimientos teóricos, sino que también tienen la oportunidad de aplicarlos en situaciones reales. Además, el feedback constante de los profesores les ayuda a mejorar su rendimiento y alcanzar sus objetivos educativos.
+      </p>
+    </div>
+</div>
+
+    <script>
+      function toggleDetails(id) {
+        var details = document.getElementById(id + '-details');
+        details.style.display = (details.style.display === 'none' || details.style.display === '') ? 'block' : 'none';
+      }
+    </script>
+  </div>
+  <footer> <!-- Estrategia de maquetacion: INLINE BLOCK LAYOUT -->
+    <div class="contenedor-footer">
+        <div class="footer-info">
+            <ul>
+                <li>
+                    <a href="Conocenos.html">Conocenos</a>
+                </li>
+                <li>
+                    <a href="Servicios.html">Servicios</a>
+                </li>
+                <li>
+                    <a href="Contactanos.html">Contactanos</a>
+                </li>
+                <li>
+                    <a href="Novedades.html">Novedades</a>
+                </li>
+                <li>
+                    <a href="Redes.html">Redes</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            <div></div>
+            <span> © 2024 Copyright, Grupo 4</span>
+            <div></div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

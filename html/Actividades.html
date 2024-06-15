@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Infante Barre Moises">
+    <meta name="description" content="Actividades Extracurriculares">
+    <title>Actividades Extracurriculares</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        p {
+            text-align: center;
+            color: blue;
+        }
+        h2 {
+            text-align: center;
+            color: red;
+        }
+        .section {
+            padding: 40px 0;
+        }
+        .card {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+        .stars {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .stars span {
+            font-size: 24px;
+            cursor: pointer;
+            color: gray;
+        }
+        .stars span.active {
+            color: gold;
+        }
+        .button-rate {
+            margin-top: 10px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        textarea {
+            width: 80%;
+            margin: 10px 0;
+        }
+
+
+/* Header y Navegación */
+.moises{
+    background-color: #333;
+    padding: 10px 0;
+    color: white;
+    text-align: center;
+}
+
+.moises nav ul {
+    list-style: none;
+}
+
+.moises nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.moises nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.moises nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Secciones */
+.section {
+    padding: 40px 0;
+}
+
+.destacada {
+    background-color: white;
+}
+
+.normal {
+    background-color: #f4f4f4;
+}
+
+/* Tarjetas */
+.container-card {
+    width: 100%;
+    display: flex;
+    max-width: 1100px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.title-cards {
+    width: 100%;
+    max-width: 1080px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+    color: #7a7a7a;
+}
+
+.card {
+    width: 100%;
+    margin: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    transition: all 400ms ease-out;
+    cursor: default;
+}
+
+.card:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
+}
+
+.card img {
+    width: 100%;
+    height: 210px;
+}
+
+.card .contenido-card {
+    padding: 15px;
+    text-align: center;
+}
+
+.card .contenido-card h3 {
+    margin-bottom: 15px;
+    color: #7a7a7a;
+}
+
+.card .contenido-card p {
+    line-height: 1.8;
+    color: #6a6a6a;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.card .contenido-card a {
+    display: inline-block;
+    padding: 10px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #2fb4cc;
+    border: 1px solid #2fb4cc;
+    border-radius: 4px;
+    transition: all 400ms ease;
+    margin-bottom: 5px;
+}
+
+.card .contenido-card a:hover {
+    background: #2fb4cc;
+    color: #fff;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    .container-card {
+        flex-wrap: wrap;
+    }
+
+    .card {
+        margin: 15px;
+    }
+}
+
+/* Footer */
+.moisesF{
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+    </style>
+</head>
+<body>
+    <header>    <!-- Estrategia de maquetacion: GRID LAYOUT -->
+        <div class="contenedor-menu">
+
+                <nav class="menu">
+                    <div class="logo" >
+                        <img src="../img/logo.png" alt="">
+                        <label>LOGO</label>
+                    </div>
+
+                    <ul>
+                        <li >
+                            <a href="../index.html">INICIO</a>
+                        </li>
+                        <li >
+                            <a href="Cursos.html">CURSOS</a>
+                        </li>
+                        <li>
+                            <a href="Profesores.html">PROFESORES</a>
+                        </li>
+                        <li class="link-activo" >
+                            <a href="Actividades.html">ACTIVIDADES EXTRACURRICULARES</a>
+                        </li> 
+                        <li>
+                            <a href="Informes.html">INFORMES</a>
+                        </li>
+                    </ul>
+                    <div class="usuario">
+                        <label >USUARIO</label> 
+                        <img src="../img/usuario.jpg" alt="">
+                    </div>
+                </nav>
+            
+            </div>
+    </header>
+    <header class="moises">
+        <nav>
+            <ul>
+                <li><a href="#seccion1">Deportivas</a></li>
+                <li><a href="#seccion2">Culturales</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="contenido">
+
+    <section id="seccion1" class="destacada section" style="background-color: white;">
+        <h2>Actividades Deportivas</h2>
+        <p>Estas actividades contribuyen a la buena salud del estudiante y que se aparte de su vida sedentaria.</p>
+  
+        <!-- Tarjetas -->
+        <div class="title-cards">
+            <h2>Deportes</h2>
+        </div>
+        <div class="container-card">
+            <div class="card">
+                <figure>
+                    <img src="../img/Futbol.jpg" alt="Fútbol">
+                </figure>
+                <div class="contenido-card">
+                    <h3>Fútbol</h3>
+                    <p>Aquí tenemos canchas de fútbol para que puedas jugar cuanto quieras.</p>
+                    <a href="#">Leer Más</a>
+                    <div class="average-rating">Promedio: <span class="average-value">0</span> ★</div>
+                    <button class="button-rate">Calificar</button>
+                </div>
+            </div>
+            <div class="card">
+                <figure>
+                    <img src="../img/Basketball.jpeg" alt="Basketball">
+                </figure>
+                <div class="contenido-card">
+                    <h3>Basketball</h3>
+                    <p>Tenemos grandes canchas de basketball para que puedas disfrutar de este gran deporte.</p>
+                    <a href="#">Leer Más</a>
+                    <div class="average-rating">Promedio: <span class="average-value">0</span> ★</div>
+                    <button class="button-rate">Calificar</button>
+                </div>
+            </div>
+            <div class="card">
+                <figure>
+                    <img src="../img/PingPong.jpg" alt="Ping pong">
+                </figure>
+                <div class="contenido-card">
+                    <h3>Ping pong</h3>
+                    <p>Tenemos mesa de ping pong para que vengas a jugar.</p>
+                    <a href="#">Leer Más</a>
+                    <div class="average-rating">Promedio: <span class="average-value">0</span> ★</div>
+                    <button class="button-rate">Calificar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="seccion2" class="normal section">
+        <h2>Actividades Extracurriculares Culturales</h2>
+        <p>Las actividades que ofrecemos nos ayudan a enriquecer la cultura.</p>
+
+        <!-- Tarjetas -->
+        <div class="container-card">
+            <div class="card">
+                <figure>
+                    <img src="../img/idioma.jpg" alt="Aprendizaje de idiomas">
+                </figure>
+                <div class="contenido-card">
+                    <h3>Aprendizaje de idiomas</h3>
+                    <p>Ven a adquirir conocimientos de otras lenguas.</p>
+                    <a href="#">Leer Más</a>
+                    <div class="average-rating">Promedio: <span class="average-value">0</span> ★</div>
+                    <button class="button-rate">Calificar</button>
+                </div>
+            </div>
+            <div class="card">
+                <figure>
+                    <img src="../img/literatura.webp" alt="Literatura">
+                </figure>
+                <div class="contenido-card">
+                    <h3>Literatura</h3>
+                    <p>Ven a leer las mejores obras literarias y a debatir con nosotros.</p>
+                    <a href="#">Leer Más</a>
+                    <div class="average-rating">Promedio: <span class="average-value">0</span> ★</div>
+                    <button class="button-rate">Calificar</button>
+                </div>
+            </div>
+            <div class="card">
+                <figure>
+                    <img src="../img/Baile.jpg" alt="Baile cultural">
+                </figure>
+                <div class="contenido-card">
+                    <h3>Baile cultural</h3>
+                    <p>Ven a practicar bailes culturales con nosotros.</p>
+                    <a href="#">Leer Más</a>
+                    <div class="average-rating">Promedio: <span class="average-value">0</span> ★</div>
+                   
+                    <button class="button-rate">Calificar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ 
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p>Por favor, ingresa tu nombre y número de teléfono para calificar esta actividad:</p>
+        <input type="text" id="name" placeholder="Nombre">
+        <input type="tel" id="phone" placeholder="Número de teléfono">
+        <p>Ya has estado en esta actividad, cuéntanos tu experiencia:</p>
+        <textarea id="comment" rows="4" cols="50" placeholder="Escribe tu comentario aquí..."></textarea>
+        <div class="stars" data-rating="0">
+            <span data-value="1">&#9733;</span>
+            <span data-value="2">&#9733;</span>
+            <span data-value="3">&#9733;</span>
+            <span data-value="4">&#9733;</span>
+            <span data-value="5">&#9733;</span>
+        </div>
+        <button id="submit-rating">Calificar</button>
+    </div>
+    
+</div>
+</main>
+<script>
+    
+    const modal = document.getElementById("myModal");
+    const span = document.getElementsByClassName("close")[0];
+    const submitButton = document.getElementById("submit-rating");
+    let currentActivity = "";
+    let ratings = {
+        "Fútbol": [],
+        "Basketball": [],
+        "Ping pong": [],
+        "Aprendizaje de idiomas": [],
+        "Literatura": [],
+        "Baile cultural": []
+    };
+   
+
+    function openModal(activity) {
+        currentActivity = activity;
+        document.getElementById("modal-title").innerText = activity;
+        modal.style.display = "block";
+        
+    }
+    
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    document.querySelectorAll('.button-rate').forEach(button => {
+        button.addEventListener('click', function() {
+            openModal(this.parentElement.querySelector('h3').innerText);
+        });
+    });
+
+    document.querySelectorAll('.stars span').forEach(star => {
+        star.addEventListener('click', function() {
+            const stars = this.parentElement.querySelectorAll('span');
+            const rating = this.getAttribute('data-value');
+            this.parentElement.setAttribute('data-rating', rating);
+            
+            stars.forEach(star => {
+                star.classList.remove('active');
+            });
+
+            for (let i = 0; i < rating; i++) {
+                stars[i].classList.add('active');
+            }
+        });
+    });
+
+    submitButton.onclick = function() {
+        const rating = parseInt(document.querySelector('.modal .stars').getAttribute('data-rating'));
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const comment = document.getElementById("comment").value.trim();
+
+        if (name === "" || phone === "") {
+            alert("Por favor, completa todos los campos.");
+            return;
+        }
+
+        if (!/^\d+$/.test(phone)) {
+            alert("El número de teléfono debe contener solo números.");
+            return;
+        }
+
+        if (!/^[A-Za-z]+$/.test(name)) {
+            alert("El nombre debe contener solo letras.");
+            return;
+        }
+
+  
+        if (rating > 0) {
+            ratings[currentActivity].push(rating);
+            const average = calculateAverage(ratings[currentActivity]);
+            document.querySelectorAll('.card').forEach(card => {
+                if (card.querySelector('h3').innerText === currentActivity) {
+                    card.querySelector('.average-value').innerText = average.toFixed(1);
+                }
+            });
+            modal.style.display = "none";
+        } else {
+            alert("Por favor, selecciona una calificación.");
+        }
+    }
+
+    function calculateAverage(arr) {
+        const total = arr.reduce((acc, val) => acc + val, 0);
+        return total / arr.length;
+    }
+  
+    window.onload = function() {
+    modal.style.display = "none";
+};
+
+
+</script>
+<footer class="moisesF">
+    <p>© 2024 Infante Barre Moises. Todos los derechos reservados.</p>
+</footer>
+<footer> <!-- Estrategia de maquetacion: INLINE BLOCK LAYOUT -->
+    <div class="contenedor-footer">
+        <div class="footer-info">
+            <ul>
+                <li>
+                    <a href="Conocenos.html">Conocenos</a>
+                </li>
+                <li>
+                    <a href="Servicios.html">Servicios</a>
+                </li>
+                <li>
+                    <a href="Contactanos.html">Contactanos</a>
+                </li>
+                <li>
+                    <a href="Novedades.html">Novedades</a>
+                </li>
+                <li>
+                    <a href="Redes.html">Redes</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            <div></div>
+            <span> © 2024 Copyright, Grupo 4</span>
+            <div></div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de Nosotros</title>
+    <meta name="author" content="Pedro Andres Aviles Baque">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .contenido {
+            padding: 20px;
+        }
+        
+        .seccion {
+            margin-bottom: 30px;
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+        }
+        
+        .titulo-seccion {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--color-principal);
+        }
+        
+        .descripcion {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-right: 20px; 
+            flex-grow: 1; 
+            text-align: justify;
+        }
+
+        .imagen {
+            width: 200px; 
+            margin-right: 20px; 
+        }
+        
+        .linea-separadora {
+            border-bottom: 1px solid var(--color-principal); /* Línea divisoria */
+            margin: 20px 0; 
+        }
+        
+        .boton-mensaje {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: var(--color-principal);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .valores-hover {
+            transition: background-color 0.3s;
+        }
+
+        .valores-hover:hover {
+            background-color: #e0e0e0; 
+        }
+
+        /* Cambiar el color de fondo al pasar el mouse */
+        .valores-hover.verde:hover {
+            background-color: lightgreen; 
+        }
+
+        .valores-hover.azul:hover {
+            background-color: lightblue; 
+        }
+    </style>
+</head>
+<body>
+    <header>    <!-- Estrategia de maquetacion: GRID LAYOUT -->
+        <div class="contenedor-menu">
+
+                <nav class="menu">
+                    <div class="logo" >
+                        <img src="../img/logo.png" alt="">
+                        <label>LOGO</label>
+                    </div>
+
+                    <ul>
+                        <li class="link-activo" >
+                            <a href="../index.html">INICIO</a>
+                        </li>
+                        <li >
+                            <a href="Cursos.html">CURSOS</a>
+                        </li>
+                        <li>
+                            <a href="Profesores.html">PROFESORES</a>
+                        </li>
+                        <li >
+                            <a href="Actividades.html">ACTIVIDADES EXTRACURRICULARES</a>
+                        </li> 
+                        <li>
+                            <a href="Informes.html">INFORMES</a>
+                        </li>
+                    </ul>
+                    <div class="usuario">
+                        <label >USUARIO</label> 
+                        <img src="../img/usuario.jpg" alt="">
+                    </div>
+                </nav>
+            
+            </div>
+    </header>
+    
+    <main>
+        <div class="contenido">
+            <!-- Botón de mensaje -->
+            <button class="boton-mensaje">Haz clic aquí</button>
+            
+            <!-- Sección de Misión y Vision -->
+            <div class="seccion">
+                <!-- Imagen a la izquierda -->
+                <img src="../img/mision.avif" alt="Misión y Visión" class="imagen">
+                <div class="descripcion">
+                    <div class="titulo-seccion">Misión y Visión</div>
+                    <p>Nuestra plataforma de retroalimentación estudiantil tiene como misión principal proporcionar a los estudiantes una voz significativa en la mejora continua de la calidad educativa. Queremos crear un espacio donde los estudiantes puedan expresar sus opiniones de manera constructiva sobre cursos, profesores y actividades extracurriculares.</p>
+                    <p>Nuestra visión es fomentar una cultura de retroalimentación abierta y transparente dentro de las instituciones educativas, donde la retroalimentación de los estudiantes sea valorada y utilizada para impulsar mejoras significativas en la enseñanza y el aprendizaje. A largo plazo, esperamos contribuir a la creación de entornos educativos más inclusivos, dinámicos y centrados en el estudiante.</p>
+                </div>
+            </div>
+            <div class="linea-separadora"></div>
+            
+            <!-- Sección de Historia -->
+            <div class="seccion valores-hover verde"> 
+                <!-- Imagen a la derecha -->
+                <div class="descripcion">
+                    <div class="titulo-seccion">Historia</div>
+                    <p>Nuestra plataforma de retroalimentación estudiantil surgió de la necesidad percibida de establecer un canal efectivo de comunicación entre los estudiantes y la administración académica. Inicialmente concebida como parte de un proyecto estudiantil, la idea cobró vida a raíz de las experiencias compartidas por un grupo de estudiantes que buscaban una manera más directa de compartir sus opiniones y sugerencias sobre su experiencia educativa.</p>
+                    <p>A medida que la idea se desarrollaba, se convirtió en un esfuerzo colaborativo entre estudiantes, profesores y personal administrativo. La plataforma fue diseñada con la participación activa de diversos miembros de la comunidad educativa, lo que garantizó que se tuvieran en cuenta una variedad de perspectivas y necesidades.</p>
+                </div>
+                <img src="../img/historia.png" alt="Historia" class="imagen">
+            </div>
+            <div class="linea-separadora"></div>
+            
+            <!-- Sección de Equipo -->
+            <div class="seccion valores-hover azul"> 
+                <div class="descripcion">
+                    <div class="titulo-seccion">Equipo</div>
+                    <p>Nuestro equipo está formado por un grupo diverso de individuos apasionados por mejorar la experiencia educativa de los estudiantes. </p>
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+            <div class="linea-separadora"></div>
+            
+            <!-- Sección de Valores -->
+            <div class="seccion valores-hover">
+                <div class="descripcion">
+                    <div class="titulo-seccion">Valores</div>
+                    <ul id="lista-valores">
+                        <li><strong>Transparencia:</strong> Creemos en la transparencia en todas nuestras acciones y decisiones. Nos comprometemos a proporcionar a los estudiantes acceso a información clara y completa sobre el funcionamiento de la plataforma.</li>
+                        <li><strong>Honestidad:</strong> Valoramos la honestidad y la sinceridad en todas las interacciones con los usuarios. Nos comprometemos a actuar con integridad y a abordar cualquier problema o preocupación de manera abierta y honesta.</li>
+                        <li><strong>Inclusividad:</strong> Nos esforzamos por crear un entorno inclusivo donde todas las voces sean valoradas y respetadas. Estamos comprometidos con la equidad y la diversidad, y buscamos activamente la participación de estudiantes de todos los orígenes y perspectivas.</li>
+                        <li><strong>Mejora continua:</strong> Buscamos constantemente formas de mejorar y evolucionar nuestra plataforma para satisfacer las necesidades cambiantes de los estudiantes. Estamos abiertos a recibir retroalimentación y estamos comprometidos a utilizarla para impulsar mejoras significativas en nuestro servicio.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="linea-separadora"></div>
+        </div>
+    </main>
+    
+    <footer> <!-- Estrategia de maquetacion: INLINE BLOCK LAYOUT -->
+        <div class="contenedor-footer">
+            <div class="footer-info">
+                <ul>
+                    <li>
+                        <a href="Conocenos.html">Conocenos</a>
+                    </li>
+                    <li>
+                        <a href="Servicios.html">Servicios</a>
+                    </li>
+                    <li>
+                        <a href="Contactanos.html">Contactanos</a>
+                    </li>
+                    <li>
+                        <a href="Novedades.html">Novedades</a>
+                    </li>
+                    <li>
+                        <a href="Redes.html">Redes</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-copyright">
+                <div></div>
+                <span> © 2024 Copyright, Grupo 4</span>
+                <div></div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Comportamiento interactivo es para mostrar un mensaje emergente al hacer clic en el botón
+        document.querySelector('.boton-mensaje').addEventListener('click', function() {
+            alert('Estas en la pagina About ');
+        });
+
+        // Comportamiento interactivo es para cambiar el color de fondo de la sección "Valores" cuando se pasa el mouse
+        document.querySelectorAll('.valores-hover').forEach(function(seccion) {
+            seccion.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#e0e0e0';
+            });
+
+            seccion.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '';
+            });
+        });
+    </script>
+</body>
+</html>
